@@ -3,17 +3,19 @@ package Catalyst::Model::YouTube;
 use strict;
 use base 'Catalyst::Model';
 
+use Catalyst::Utils;
+use Class::C3;
 use WebService::YouTube::Videos;
 
-our $VERSION = '0.1';
+our $VERSION = '0.11';
 
 =head1 NAME
 
-CatTube::Model::YouTube - Catalyst Model for the YouTube Web Services
+Catalyst::Model::YouTube - Catalyst Model for the YouTube Web Services
 
 =head1 SYNOPSIS
 
-    # use the hehlper
+    # use the helper
     myapp/script/myapp_create.pl create model YouTube YouTube [dev_id]
 
     # lib/MyApp/Model/YouTube.pm
@@ -49,10 +51,12 @@ Initialized the YouTube object.
 
 sub new {
     my ( $self, $c, $arguments ) = @_;
-    $self = $self->NEXT::new(@_);
+    $self = $self->next::method(@_);
 
-    $self->{'.youtube'} = new WebService::YouTube::Videos($arguments);
-
+    $self->{'.youtube'} = new WebService::YouTube::Videos(
+        Catalyst::Utils::merge_hashes($arguments, $self->config)
+    );
+ 
     return $self;
 }
 

@@ -1,6 +1,6 @@
 ---
 name: Catalyst-Model-YouTube
-version: 0.1
+version: 0.11
 author:
   - 'J. Shirley <jshirley@gmail.org>'
 abstract: Catalyst Model for the YouTube Web Services
@@ -16,7 +16,7 @@ provides:
     version: 0.01
   Catalyst::Model::YouTube:
     file: lib/Catalyst/Model/YouTube.pm
-    version: 0.1
+    version: 0.11
 generated_by: Module::Build version 0.2805
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
