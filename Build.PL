@@ -9,6 +9,7 @@ my $build = Module::Build->new(
     module_name         => 'Catalyst::Model::YouTube',
     requires            => {
         'Catalyst'              => '5.00',
+        'Class::C3'             => 0.14,
         'WebService::YouTube'   => 0,
     },
 

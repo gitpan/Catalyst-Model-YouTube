@@ -9,7 +9,8 @@ WriteMakefile
           'VERSION_FROM' => 'lib/Catalyst/Model/YouTube.pm',
           'PREREQ_PM' => {
                            'WebService::YouTube' => 0,
-                           'Catalyst' => '5.00'
+                           'Catalyst' => '5.00',
+                           'Class::C3' => '0.14'
                          }
         )
 ;

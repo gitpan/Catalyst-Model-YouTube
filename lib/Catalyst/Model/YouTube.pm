@@ -7,7 +7,7 @@ use Catalyst::Utils;
 use Class::C3;
 use WebService::YouTube::Videos;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 =head1 NAME
 
