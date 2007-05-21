@@ -7,7 +7,7 @@ use Catalyst::Utils;
 use Class::C3;
 use WebService::YouTube::Videos;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 =head1 NAME
 
@@ -53,9 +53,7 @@ sub new {
     my ( $self, $c, $arguments ) = @_;
     $self = $self->next::method(@_);
 
-    $self->{'.youtube'} = new WebService::YouTube::Videos(
-        Catalyst::Utils::merge_hashes($arguments, $self->config)
-    );
+    $self->{'.youtube'} = new WebService::YouTube::Videos( { %$self } );
  
     return $self;
 }
