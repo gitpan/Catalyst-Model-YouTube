@@ -7,7 +7,7 @@ use Catalyst::Utils;
 use Class::C3;
 use WebService::YouTube::Videos;
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 =head1 NAME
 
@@ -53,21 +53,7 @@ sub new {
     my ( $self, $c, $arguments ) = @_;
     $self = $self->next::method(@_);
 
-    $self->{'.youtube'} = new WebService::YouTube::Videos( { %$self } );
- 
-    return $self;
-}
-
-=item ACCEPT_CONTEXT
-
-Returns the YouTube webservice object, called automatically via
-$c->model('YouTube')
-
-=cut
-
-sub ACCEPT_CONTEXT {
-    my ( $self ) = @_;
-    return $self->{'.youtube'};
+    return new WebService::YouTube::Videos( { %$self } );
 }
 
 =back 
